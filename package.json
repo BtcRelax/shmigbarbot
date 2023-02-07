@@ -19,7 +19,8 @@
   },
   "homepage": "https://github.com/BtcRelax/shmigbarbot#readme",
   "dependencies": {
-    "dotenv": "^16.0.1",
+    "dotenv": "^16.0.3",
+    "mongoose": "^6.9.1",
     "node-telegram-bot-api": "^0.61.0",
     "telegraf": "^4.8.5"
   }
