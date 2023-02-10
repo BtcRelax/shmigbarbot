@@ -23,9 +23,9 @@ const Bot = require('node-telegram-bot-api'),
                     }
                 };
                 bot.sendMessage(msg.chat.id, "Where you want to get a drugs?", option).then(() => {
-                    bot.once("location",(msg)=>{
+                    bot.once("location", function (msg) {
                         bot.sendMessage(msg.chat.id, "We will deliver your order to " + [msg.location.longitude,msg.location.latitude].join(";"));
-                })
+                });
                 // db.addLog({
                 //     name: msg.from.first_name,
                 //     id: msg.from.id
@@ -39,13 +39,15 @@ const Bot = require('node-telegram-bot-api'),
     });
          
 
-/*     bot.onText(/^\/get_logs$/, (msg, match) => {
+    bot.onText(/^\/get_logs$/, (msg, match) => {
         db.getLogs(res).then(() => {
             console.log(res);
         });
     });
+
     bot.onText(/^\/clear_logs$/, (msg, match) => {
         db.clearLogs(res).then(() => {
             console.log(res);
         });
-    }); */
+    });
+})
