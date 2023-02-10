@@ -39,13 +39,13 @@ const Bot = require('node-telegram-bot-api'),
     });
          
 
-/*     bot.onText(/^\/get_logs$/, (msg, match) => {
-        db.getLogs(res).then(() => {
-            console.log(res);
-        });
-    });
-    bot.onText(/^\/clear_logs$/, (msg, match) => {
-        db.clearLogs(res).then(() => {
-            console.log(res);
-        });
-    }); */
+    //  bot.onText(/^\/get_logs$/, (msg, match) => {
+    //     db.getLogs(res).then(() => {
+    //         console.log(res);
+    //     });
+    // });
+    // bot.onText(/^\/clear_logs$/, (msg, match) => {
+    //     db.clearLogs(res).then(() => {
+    //         console.log(res);
+    //     });
+    // }); 
