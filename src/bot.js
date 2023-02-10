@@ -19,11 +19,12 @@ const Bot = require('node-telegram-bot-api'),
                         "keyboard": [[{
                             text: "Set location",
                             request_location: true
-                        }], ["Cancel"]]
+                        }]]
                     }
                 };
                 bot.sendMessage(msg.chat.id, "Where you want to get a drugs?", option).then(() => {
-                    console.log('ok');
+                    bot.once("location",(msg)=>{
+                        bot.sendMessage(msg.chat.id, "We will deliver your order to " + [msg.location.longitude,msg.location.latitude].join(";"));
                 })
                 // db.addLog({
                 //     name: msg.from.first_name,
