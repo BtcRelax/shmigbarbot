@@ -1,8 +1,8 @@
 require('dotenv').config();
 var mongoose = require("mongoose");
+var Message = require('./models/message');
 
-var uristring =
-    process.env.MONGODB_URI;
+var uristring = process.env.MONGODB_URI;
 
 mongoose.connect(uristring, function (err, res) {
     if (err) {
@@ -10,22 +10,7 @@ mongoose.connect(uristring, function (err, res) {
     } else {
         console.log('Succeeded connected to: ' + uristring);
     }
-});
-
-var messageSchema = new mongoose.Schema({
-    user: {
-        name: String,
-        id: Number
-    },
-    message: {
-        chat_id: String,
-        id: String,
-        text: String
-    },
-    timestamp: String
-});
-
-var Message = mongoose.model('Messages', messageSchema);
+})
 
 module.exports = { 
     getLogs(cb) {

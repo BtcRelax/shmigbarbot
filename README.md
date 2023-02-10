@@ -3,6 +3,14 @@
 # shmigbarbot
  Bot for service Shmig.bar
  
+
+## Set commands info to bot father:
+echo - echo request
+place_order - register new order
+get_logs - get all what you said
+clear_log - clear all your history
+
+
 Good example with publishing to free hoster:
 https://soshace.com/building-a-telegram-bot-with-node-js/
 
