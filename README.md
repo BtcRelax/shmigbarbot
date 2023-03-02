@@ -1,8 +1,16 @@
 [![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/BtcRelax/shmigbarbot/)
 
 # shmigbarbot
- Bot for service Shmig.bar
- 
+    Bot for service Shmig.bar
+
+## Prepare config
+    Before start you need to set environment variables
+    Create file .env from default.env
+
+    ```
+    cp default.env .env
+    ```
+
 
 ## Set commands info to bot father:
 echo - echo request
@@ -10,6 +18,7 @@ place_order - register new order
 get_logs - get all what you said
 clear_log - clear all your history
 get_balance - getting balance
+activate_kunacode - input kunacode after command, as a result of run youll see balance
 
 
 Good example with publishing to free hoster:
