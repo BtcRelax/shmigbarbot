@@ -1,10 +1,13 @@
 require('dotenv').config();
-const db = require('./db');
+var db = require('./db');
+var axios = require('axios');
 // your token from BotFather
-const token = process.env.BOT_TOKEN;
+var token = process.env.BOT_TOKEN;
+var kuna_api_url  = process.env.KUNA_API_URL;
 
-const Bot = require('node-telegram-bot-api'),
+var Bot = require('node-telegram-bot-api'),
     bot = new Bot(token, { polling: true });
+
     bot.onText(/^\/echo(.+)$/, function (msg, match) {
         bot.sendMessage(msg.chat.id, 'You said ' + match[1])
     });
@@ -35,30 +38,31 @@ const Bot = require('node-telegram-bot-api'),
                 //     id: msg.message_id,
                 //     text: match[1]
                 // })
-            });                     
+                });                     
+            });
         });
     });
-         
+
+             
     bot.onText(/^\/get_balance/,function (msg, match) {
-        /// Get balance anjd return result 
-        var axios = require('axios');
-        const kuna_api_url  = process.env.KUNA_API_URL;
+        /// Get balance anjd return result        
         var config = {
                 method: 'get',
                 maxBodyLength: Infinity,
-                url: 'http://' + kuna_api_url + '/api/kuna/getbalance',
+                url: `http://${kuna_api_url}/api/kuna/getbalance`,
                 headers: { }
                 };
-
+        
                 axios(config)
                 .then(function (response) {
-                console.log(JSON.stringify(response.data));
+                    console.log(JSON.stringify(response.data));
+                    bot.sendMessage(msg.chat.id, JSON.stringify(response.data));    
                 })
                 .catch(function (error) {
                 console.log(error);
                 });
 
-    } );
+    });
 
 
     bot.onText(/^\/get_logs$/, (msg, match) => {
@@ -71,5 +75,4 @@ const Bot = require('node-telegram-bot-api'),
         db.clearLogs(res).then(() => {
             console.log(res);
         });
-    });
-})
+    })

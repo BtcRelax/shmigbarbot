@@ -9,6 +9,7 @@ echo - echo request
 place_order - register new order
 get_logs - get all what you said
 clear_log - clear all your history
+get_balance - getting balance
 
 
 Good example with publishing to free hoster:
