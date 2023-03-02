@@ -23,6 +23,7 @@
     "dotenv": "^16.0.3",
     "mongoose": "^6.9.1",
     "node-telegram-bot-api": "^0.61.0",
+    "prompt-sync": "^4.2.0",
     "telegraf": "^4.8.5"
   }
 }
