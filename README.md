@@ -7,10 +7,15 @@
     Before start you need to set environment variables
     Create file .env from default.env
 
-    ```
-    cp default.env .env
-    ```
+```
+cp default.env .env
+```
 
+## Start as daemon 
+
+```
+pm2 start npm --name "drug master bot" --log-date-format 'DD-MM HH:mm:ss.SSS' -- bot
+```
 
 ## Set commands info to bot father:
 echo - echo request
@@ -21,7 +26,8 @@ get_balance - getting balance
 activate_kunacode - input kunacode after command, as a result of run youll see balance
 
 
-Good example with publishing to free hoster:
+
+## Good example with publishing to free hoster:
 https://soshace.com/building-a-telegram-bot-with-node-js/
 
 Sample:
