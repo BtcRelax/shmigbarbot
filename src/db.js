@@ -1,6 +1,7 @@
 require('dotenv').config();
 var mongoose = require("mongoose");
 var Message = require('./models/message');
+var TgUser = require('./models/user');
 
 var uristring = process.env.MONGODB_URI;
 

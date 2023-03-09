@@ -10,7 +10,22 @@ var Bot = require('node-telegram-bot-api'),
         polling: true
     });
 
+bot.onText(/\/start/, (msg) => {    
+    /// TODO: Check user in database 
+    bot.sendMessage(msg.chat.id, "Welcome");
+});
+
+
+
 bot.onText(/^\/echo(.+)$/, function (msg, match) {
+    db.addLog({
+        name: msg.from.first_name,
+        id: msg.from.id
+        }, {
+                chat_id: msg.chat.id, 
+                id: msg.message_id,
+                text: match[1]
+            })
     bot.sendMessage(msg.chat.id, 'You said ' + match[1])
 });
 
@@ -35,14 +50,6 @@ bot.onText(/^\/place_order/, function (msg, match) {
                 bot.once("location", function (msg) {
                     bot.sendMessage(msg.chat.id, "We will deliver your order to " + [msg.location.longitude, msg.location.latitude].join(";"));
                 });
-                // db.addLog({
-                //     name: msg.from.first_name,
-                //     id: msg.from.id
-                // }, {
-                //     chat_id: msg.chat.id, 
-                //     id: msg.message_id,
-                //     text: match[1]
-                // })
             });
         });
     });
