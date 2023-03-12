@@ -1,0 +1,6 @@
+{
+    "port": 80,
+    "mongoUri": "mongodb+srv://dbUser:mpP0UivDokxxFnAq@cluster0.cahme9m.mongodb.net/?retryWrites=true&w=majority",
+    "jwtSecret": "LinuxForever$",
+    "baseUrl": "http://front.shmig.store"
+}

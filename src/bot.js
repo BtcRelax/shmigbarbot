@@ -10,13 +10,15 @@ var Bot = require('node-telegram-bot-api'),
         polling: true
     });
 
+
+/// On Start command
 bot.onText(/\/start/, (msg) => {    
     /// TODO: Check user in database 
     bot.sendMessage(msg.chat.id, "Welcome");
 });
 
 
-
+/// On
 bot.onText(/^\/echo(.+)$/, function (msg, match) {
     db.addLog({
         name: msg.from.first_name,
@@ -117,3 +119,5 @@ bot.onText(/^\/clear_logs$/, (msg, match) => {
         console.log(res);
     });
 });
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
